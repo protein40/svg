@@ -1,0 +1,1098 @@
+/*! fancyBox v2.1.3 fancyapps.com | fancyapps.com/fancybox/#license */
+.fancybox-image,
+.fancybox-inner,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-outer,
+.fancybox-skin,
+.fancybox-tmp,
+.fancybox-wrap,
+.fancybox-wrap iframe,
+.fancybox-wrap object {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    vertical-align: top;
+}
+
+.fancybox-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8020;
+}
+
+.fancybox-skin {
+    position: relative;
+    background: #f9f9f9;
+    color: #444;
+    text-shadow: none;
+}
+
+.fancybox-opened {
+    z-index: 8030;
+}
+
+.fancybox-opened .fancybox-skin {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
+}
+
+.fancybox-inner,
+.fancybox-outer {
+    position: relative;
+}
+
+.fancybox-type-iframe .fancybox-inner {
+    -webkit-overflow-scrolling: touch;
+}
+
+.fancybox-error {
+    color: #444;
+    font: 14px/20px Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.fancybox-iframe,
+.fancybox-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.fancybox-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#fancybox-loading,
+.fancybox-close {
+    background-image: url(../images/fancybox/fancybox_sprite.png);
+}
+
+.fancybox-prev span {
+    background: url(../images/fancybox/prev.png) no-repeat 0;
+}
+
+.fancybox-next span {
+    background: url(../images/fancybox/next.png) no-repeat 100%;
+}
+
+#fancybox-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -22px;
+    margin-left: -22px;
+    background-position: 0 -108px;
+    opacity: .8;
+    cursor: pointer;
+    z-index: 8060;
+}
+
+#fancybox-loading div {
+    width: 44px;
+    height: 44px;
+    background: url(../images/fancybox/fancybox_loading.gif) 50% no-repeat;
+}
+
+.fancybox-close {
+    top: -18px;
+    right: -18px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 8040;
+}
+
+.fancybox-close_form {
+    background: url(/images/close.jpg) 50% no-repeat;
+    top: 0;
+    right: 2px;
+}
+
+.fancybox-nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent url(../images/fancybox/blank.gif);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    z-index: 8040;
+}
+
+.fancybox-prev {
+    left: 0;
+}
+
+.fancybox-next {
+    right: 0;
+}
+
+.fancybox-nav span {
+    position: absolute;
+    top: 50%;
+    height: 55px;
+    margin-top: -18px;
+    cursor: pointer;
+    width: 65px;
+    z-index: 8040;
+}
+
+.fancybox-prev span {
+    left: -80px;
+}
+
+.fancybox-next span {
+    right: -80px;
+}
+
+.fancybox-tmp {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    visibility: hidden;
+    max-width: 99999px;
+    max-height: 99999px;
+    overflow: visible !important;
+}
+
+.fancybox-lock {
+    overflow: hidden;
+}
+
+.fancybox-overlay {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    z-index: 8010;
+    background: url(../images/fancybox/fancybox_overlay.png);
+}
+
+.fancybox-overlay-fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.fancybox-lock .fancybox-overlay {
+    overflow: auto;
+    overflow-y: scroll;
+}
+
+.fancybox-title {
+    visibility: hidden;
+    font: normal 13px/20px Helvetica Neue, Helvetica, Arial, sans-serif;
+    position: relative;
+    text-shadow: none;
+    z-index: 8050;
+}
+
+.fancybox-opened .fancybox-title {
+    visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    margin-bottom: -35px;
+    z-index: 8050;
+    text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+    display: inline-block;
+    margin-right: -100%;
+    padding: 2px 20px;
+    background: transparent;
+    background: rgba(0, 0, 0, .8);
+    border-radius: 15px;
+    text-shadow: 0 1px 2px #222;
+    color: #fff;
+    font-weight: 700;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+    position: relative;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+    color: #000;
+    font-weight: 700;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.fancybox-title-over-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 10px;
+    background: #000;
+    background: rgba(0, 0, 0, .8);
+}
+
+.fancybox-wrap-comparison {
+    background: #fff;
+    padding: 25px 10px 30px;
+}
+
+.fancybox-wrap-comparison .fancybox-inner,
+.fancybox-wrap-comparison .fancybox-outer {
+    position: inherit;
+}
+
+.compare_close {
+    background: url(/images/close.jpg) no-repeat 100%;
+    padding: 0 23px 0 0;
+    line-height: 23px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.compare_title {
+    position: absolute;
+    right: 10px;
+    bottom: 9px;
+}
+
+/* Fonts */
+@font-face {
+    font-family: Open Sans;
+    src: url(/fonts/opensans.woff) format("woff"),
+         url(/fonts/opensans.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Open Sans;
+    src: url(/fonts/opensanssemibold.woff) format("woff"),
+         url(/fonts/opensanssemibold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Open Sans;
+    src: url(/fonts/opensansmedium.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Open Sans;
+    src: url(/fonts/opensansbold.woff) format("woff"),
+         url(/fonts/opensansbold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Open Sans;
+    src: url(/fonts/opensansextrabold.woff) format("woff"),
+         url(/fonts/opensansextrabold.ttf) format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Video Styles */
+.video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-color: #000;
+}
+
+.video__link,
+.video__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video__media {
+    border: none;
+}
+
+.video__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: none;
+    padding: 0;
+    width: 68px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.video__button-shape {
+    fill: #212121;
+    fill-opacity: .8;
+}
+
+.video__button-icon {
+    fill: #fff;
+}
+
+.video__button:focus {
+    outline: none;
+}
+
+.video:hover .video__button-shape,
+.video__button:focus .video__button-shape {
+    fill: #00a1e7;
+    fill-opacity: 1;
+}
+
+.video--enabled {
+    cursor: pointer;
+}
+
+.video--enabled .video__button {
+    display: block;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+@media (max-width: 600px) {
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #167f2b;
+    border-radius: 20px;
+    border: 7px solid #167f2b;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.video__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: none;
+    padding: 0;
+    width: 68px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+}
+
+.video__button-shape {
+    fill: #212121;
+    fill-opacity: .8;
+}
+
+.video__button-icon {
+    fill: #fff;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+@media (max-width: 600px) {
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #167f2b;
+    border-radius: 20px;
+    border: 7px solid #167f2b;
+}
+
+.page {
+    position: relative;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    color: #000;
+    overflow-x: hidden;
+}
+
+@media (max-width: 1300px) {
+    .page {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1301px) and (max-width: 1699px) {
+    .page {
+        font-size: 16px;
+    }
+}
+
+.main {
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+p {
+    margin-bottom: .75em;
+}
+
+button {
+    font-family: inherit;
+}
+
+@media (max-width: 1023px) {
+    .hide-in-mobile {
+        display: none;
+    }
+}
+
+h1 {
+    margin-bottom: 1em;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3em;
+}
+
+@media (max-width: 1023px) {
+    h1 {
+        font-size: 1.43em;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 2.125em;
+    }
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 80%;
+    z-index: 9;
+    margin: 0; /* Убедитесь, что у контейнера нет внешних отступов */
+    padding: 0; /* Убедитесь, что у контейнера нет внутренних отступов */
+
+    margin-top: 0; /* Убедитесь, что у контейнера нет верхнего отступа */
+    padding-top: 0; /* Убедитесь, что у контейнера нет внутреннего отступа */
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1300px) {
+    .container {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1066px) {
+    .container {
+        width: 97%;
+    }
+}
+
+@media (min-width: 1067px) and (max-width: 1359px) {
+    .container {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1360px) {
+    .container {
+        width: 88.2%;
+        max-width: 1400px;
+    }
+}
+
+/* Остальные стили... */
+.j-nav-section .nav-new {
+    background-color: white; /* Фон меню */
+    padding: 10px 0; /* Отступы сверху и снизу */
+}
+
+.j-nav-section .nav-new .ul-lvl-1 {
+    display: flex; /* Отображаем элементы в одну линию */
+    padding: 0; /* Убираем отступы */
+    list-style: none; /* Убираем маркеры списка */
+}
+
+.j-nav-section .nav-new .li-lvl-1 {
+    position: relative; /* Для позиционирования псевдоэлементов */
+}
+
+/* Разделитель между элементами списка */
+.j-nav-section .nav-new .li-lvl-1:not(:last-child)::after {
+    content: ""; /* Разделитель */
+    position: absolute;
+    right: 0; /* Позиция разделителя на правом краю кнопки */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px; /* Ширина разделителя */
+    height: 40%; /* Высота разделителя */
+    background-color: #282e6a; /* Цвет разделителя */
+}
+
+.j-nav-section .nav-new .a-lvl-1 {
+    color: #282e6a; /* Цвет текста неактивной кнопки */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 4px 15px; /* Отступы для кнопки */
+    background-color: white; /* Фон неактивной кнопки */
+    outline: none; /* Убираем стандартную обводку */
+    border: none; /* Убираем границы */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+}
+
+/* Стили для активной кнопки */
+.j-nav-section .nav-new .a-lvl-1:hover,
+.j-nav-section .nav-new .a-lvl-1:focus,
+.j-nav-section .nav-new .a-lvl-1.active {
+    background-color: #282e6a; /* Цвет фона для выделенной кнопки */
+    color: white; /* Цвет текста для выделенной кнопки */
+    border: 0px solid #282e6a; /* Обводка для активной кнопки */
+    border-radius: 0px; /* Скругление углов (опционально) */
+    box-shadow: 0 0 0 4px #282e6a; /* Эффект "обводки" снаружи */
+}
+
+/* Убираем разделитель на активной кнопке */
+.j-nav-section .nav-new .li-lvl-1.active::after {
+    display: none; /* Убираем разделитель для активных кнопок */
+}
+
+/* Убираем разделитель при наведении на активную кнопку */
+.j-nav-section .nav-new .li-lvl-1.active:hover::after,
+.j-nav-section .nav-new .li-lvl-1:hover:not(.active)::after {
+    display: none; /* Убираем разделитель при наведении курсора */
+}
+  
+
+/* Псевдоэлемент для активной кнопки с фоном */
+.j-nav-section .nav-new .li-lvl-1:hover::before,
+.j-nav-section .nav-new .li-lvl-1.active::before {
+    content: "";
+    position: absolute;
+    left: 0; /* Сдвиньте на 0, чтобы фоновая область начиналась от края кнопки */
+    top: 0;
+    height: 100%; /* Высота выделенной области */
+    width: 100%; /* Ширина равна ширине кнопки */
+    background-color: #282e6a; /* Цвет фона для выделенной области */
+    z-index: -1; /* За текстом */
+}
+
+/* Устранение конфликтов с белыми пробелами */
+.j-nav-section .nav-new .li-lvl-1 {
+    margin-right: -1px; /* Убираем возможные пробелы между кнопками */
+}
+
+.j-nav-section .nav-new .li-lvl-1:last-child {
+    margin-right: 0; /* Сброс маргина для последней кнопки */
+}
+
+.j-nav-section {
+    padding-top: 0px; /* Это предотвращает схлопывание отступов */
+}
+
+
+
+.f-left {
+    text-align: left;  /* Выравнивание по левому краю */
+    margin-top: 0em;  
+    margin-bottom: 0.9em; /* Установите нижний отступ */
+    color: inherit;     /* Наследовать цвет от родителя */
+   
+}
+
+
+
+
+
+
+
+
+
+
+.fixed_head.menu-mobile {
+    display: flex;            /* Flexbox для горизонтального выравнивания */
+    align-items: center;      /* Центрируем элементы по вертикали */
+    padding: 10px;           /* Добавить отступы для лучшего отображения */
+}
+
+.logo__img {
+    height: 3em;             /* Установите высоту логотипа в 1em */
+    width: auto;             /* Ширина будет автоматически подстраиваться */
+    margin-right: 10px;      /* Отступ справа от логотипа */
+}
+
+@media (max-width: 1300px) {
+    .footer__top-item img.logo__img {
+        width: 170px; /* Ширина для экранов меньше 1300px */
+        max-height: unset; /* Удалить максимальную высоту */
+    }
+}
+
+.menu__call {
+    position: relative; /* Убедитесь, что родительский элемент (кнопка) имеет относительное позиционирование */
+    padding-left: 25px; /* Добавляем отступ слева для текста, чтобы он не накладывался на иконку */
+}
+
+.menu__call:before {
+    content: "";
+    position: absolute;
+    left: 10px;         /* Позиционируем иконку слева от текста */
+    top: 50%;           /* Центрируем иконку по вертикали */
+    transform: translateY(-50%); /* Вертикально центрируем иконку относительно кнопки */
+    width: 18px;        /* Ширина иконки */
+    height: 18px;       /* Высота иконки */
+    background-image: url(https://greenlos.ru/images/call_2.svg); /* Указываем путь к иконке */
+    background-repeat: no-repeat; /* Не повторять изображение */
+    background-size: contain; /* Масштабируем изображение внутри элемента */
+}
+
+/* Общие стили для иконок */
+.topcat__char {
+    display: flex; /* Размещаем иконки в строке */
+    margin-top: 0; /* Убираем верхний отступ */
+    margin-bottom: 0; /* Оставляем нижний отступ равным 0, если не нужен */
+    padding-top: 0; /* Убираем верхний внутренний отступ */
+    padding-bottom: 0; /* Убираем нижний внутренний отступ, если не нужен */
+}
+
+.topcat__char .char-ico {
+    display: flex; /* Используем flexbox для иконки и текста внутри */
+    align-items: center; /* Выравнивание по вертикали */
+    margin: 0; /* Убираем отступы у контейнера */
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+.topcat__char .char-ico img {
+    height: 2.5em; /* Фиксированная высота иконки */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    margin-right: 10px; /* Отступ справа от иконки */
+}
+
+.topcat__char .char-ico:first-child {
+    margin-left: -55px; /* Отрицательный отступ для прижатия к краю */
+}
+
+/* Добавляем отступ слева для второй и третьей иконки */
+.topcat__char .char-ico:not(:first-child) {
+    margin-left: 50px; /* Отступ слева для всех элементов, кроме первого */
+}
+
+.topcat__char .char-ico div {
+    margin-left: 10px; /* Установите нужный отступ между иконкой и текстом */
+
+}
+
+.char-ico div span {
+    margin-top: 0.25em; /* Adjust the top and bottom spacing between the span tags */
+    padding-top: 0.25em;
+    margin-bottom: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.char-ico .f-semibold,
+.char-ico .value {
+    display: block; /* Каждая строка будет занимать новую строку */
+    margin: 0; /* Убираем отступы, если есть */
+}
+
+.value {
+    display: block; /* Убедитесь, что каждый текст находится на новой строке */
+}
+
+.f-semibold {
+    line-height: 1; /* Уменьшаем высоту строки, чтобы избежать лишних отступов */
+}
+
+.topcat {
+    margin-top: 0; /* Убираем отступ сверху у .topcat, если это необходимо */
+}
+
+
+
+
+.char-ico-hover {
+    transition: box-shadow 0.3s ease; /* Плавный переход для тени */
+}
+
+.char-ico-hover:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Серая размытая тень */
+}
+.char-ico {
+    margin: 0; /* Убедитесь, что отступы другого типа тоже убраны */
+    padding: 0;
+}
+
+.char-ico img {
+    margin: 0; /* Убираем отступчики для изображения */
+    padding: 0;
+    vertical-align: middle; /* Выравнивание изображения */
+    display: inline-block; /* Убедитесь, что мы контролируем поведение изображения */
+}
+.char-ico:before {
+    content: ''; /* Явно указываем, что ничего не выводим */
+    display: none; /* Скрыть псевдоэлемент */
+}
+
+
+
+
+/* Общие стили для иконок */
+.topcat__char {
+    display: flex; /* Размещаем иконки в строке */
+}
+
+/* Общие стили для иконок */
+.topcat__char {
+    display: flex; /* Размещаем иконки в строке */
+}
+
+.topcat__char .char-ico-custom {
+    display: flex; /* Используем flexbox для иконки и текста внутри нее */
+    align-items: center; /* Выравнивание по вертикали */
+    margin: 0 1em; /* Отступы вокруг каждой иконки (слева и справа) для тени */
+    padding: 0.5em; /* Добавляем внутренние отступы, чтобы тень начиналась дальше от границ текста и иконки */
+    transition: box-shadow 0.3s ease; /* Плавный переход для тени */
+}
+
+.char-ico-custom:hover {
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.3); /* Увеличиваем тень с небольшим отрицательным spread-radius */
+}
+
+.topcat__char .char-ico-custom img {
+    height: 2.5em; /* Фиксированная высота иконки */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    margin-right: 1em; /* Отступ справа от иконки */
+}
+.char-ico-custom {
+    display: flex; /* Позволяет иконке и тексту быть в одной строке */
+    align-items: center; /* Выравнивание по вертикали по центру */
+}
+
+.char-ico-custom a {
+    display: flex; /* Используем flexbox для ссылки */
+    align-items: center; /* Выравнивание содержимого по вертикали */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: black;
+}
+
+.char-ico-custom img {
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+    vertical-align: middle; /* Выравнивание изображения по центру */
+}
+
+
+
+/* Дополнительный класс для второго элемента */
+.topcat__char .char-ico-custom:nth-child(2) {
+    margin-left: 10em; /* Сдвиг влево для второй иконки */
+}
+
+/* Стили для изображений в контейнере grid-half */
+.grid-half img {
+    height: auto; /* Автоматическая высота изображений */
+}
+
+/* Основные стили для контейнера grid */
+.grid {
+    display: -webkit-box; /* Для поддержки старых браузеров */
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify; /* Выравнивание элементов по оси X */
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center; /* Выравнивание элементов по оси Y */
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap; /* Автоброс элементов, если они не помещаются */
+    flex-wrap: wrap;
+}
+
+/* Медиа-запросы */
+@media (min-width: 600px) {
+    /* Для экранов шириной 600px и более */
+    .grid-half > .grid__item {
+        width: 49%; /* Два элемента в строке */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    /* Для экранов от 600px до 1023px */
+    .grid-third-auto > .grid__item,
+    .grid-third > .grid__item {
+        width: 49%; /* Аналогично, два элемента в строке */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Для экранов шириной 1024px и более */
+    .grid-third-auto > .grid__item,
+    .grid-third > .grid__item {
+        width: 32%; /* Три элемента в строке */
+    }
+
+    .grid-quater > .grid__item {
+        width: 19%; /* Четыре элемента в строке */
+    }
+
+    .grid-fifth > .grid__item {
+        width: 19%; /* Пять элементов в строке */
+    }
+}
+
+@media (max-width: 1023px) {
+    /* Для экранов шириной до 1023px */
+    .grid-fifth > .grid__item {
+        width: 49%; /* Два элемента в строке */
+    }
+}
+
+@media (max-width: 1300px) {
+    /* Для экранов шириной до 1300px */
+    .fixed_head {
+        position: fixed; /* Фиксированное позиционирование для заголовка */
+        top: 0;
+        left: 0;
+        z-index: 130; /* Уровень наложения */
+        display: -webkit-box; /* Для поддержки старых браузеров */
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+.grid__item {
+    transition: box-shadow 0.3s ease; /* Плавный переход для тени */
+}
+
+.grid__item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Серая размытая тень */
+}
+
+
+.green-block {
+    display: inline-block;
+    padding: 2px 2px;
+    background-color: #167f2b;
+    border-radius: 10px; /* Adjust the value to change the roundness */
+    white-space: nowrap; /* Keeps the text on one line */
+}
+
+.green-block .link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.green-block .link:hover {
+    text-decoration: underline;
+}
+
+.green-block p, .green-block a {
+    display: inline-block;
+    margin-right: 40px; /* Adjust the spacing between elements */
+} 
+.credit__form-text {
+    text-align: left;
+}
+
+.credit__form {
+    margin-right: 70px;
+    max-width: 800px;
+}
+
+.credit__form-wrapper {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.green-block {
+    margin-top: 7.5px;
+}
+
+@media (min-width: 1700px) {
+    .credit__form {
+        max-width: 500px;
+    }
+}
+
+
+.goods_item_new {
+    position: relative;
+    height: 100%;
+    padding:  8.33%  8.33%  8.33% ;
+
+    /*padding: calc(0.083 * width) calc(0.083 * width) calc(0.083 * width)     8.33%  8.33%  8.33% */
+
+    
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+
+.s-elem-block.goods_item_new {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 50%;
+    flex: 0 1 50%;
+}
+
+.grid-third_new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2em; /* Adjust the value as needed */
+}
+
+@media (min-width: 1024px) {
+    .grid-third_new {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid-third_new {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;       
+    }
+}
+
+.goods__price_new {
+    padding-left:0;  /* Паддинг слева */
+    padding-top: 10%;    /* Паддинг сверху */
+    padding-bottom: 10%;
+    margin: 0;            /* Убираем внешние отступы */
+    display: flex;        /* Включаем Flexbox */
+    justify-content: flex-start; /* Элементы прижимаем к началу контейнера */
+    align-items: flex-start; /* Элементы прижимаем к верхнему краю */
+
+}
+
+
+.grid-two_new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4.5em; /* Adjust the value as needed */
+    row-gap: 1em; 
+}
+
+@media (min-width: 1024px) {
+    .grid-two_new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid-two_new {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;       
+    }
+}
+
+
+
+.topcat__char_two {
+    margin-top: 2em; /* Убираем верхний отступ */
+    margin-bottom: 0; /* Оставляем нижний отступ равным 0, если не нужен */
+    padding-top: 0; /* Убираем верхний внутренний отступ */
+    padding-bottom: 0; /* Убираем нижний внутренний отступ, если не нужен */
+    height: 125px;
+    /* Убрано display: flex; */
+}
+
+.char-ico_new {
+    display: flex; /* Используем flex для размещения элементов в строку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+
+}
+
+.char-ico_new img {
+    margin-right: 1.5em; /* Добавляем отступ между изображением и текстом */
+    max-width: 3.2em; /* Максимальная ширина изображения */
+    height: auto; /* Поддерживаем пропорции изображения */
+}
